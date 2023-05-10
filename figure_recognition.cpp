@@ -4,7 +4,6 @@
 #include <vector>
 using namespace std;
 using namespace cv;
-//读取图片左上角像素点的HSV值并储存于相应成员变量
 
 class low      //对低级别图片的预处理方法
 {  
