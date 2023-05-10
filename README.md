@@ -4,4 +4,11 @@
 #cpp文件里定义了三个类low,mid,high
 #每个类里各有一个成员函数transformer，分别是对低级，中级，高级图片的预处理方法
 #接下来定义一个函数recognition，传入img和clo两个Mat类型的参数，其中img是你想要识别的图片（一般是经过预处理的图片），clo是识别后传出的图片。
+代码思路：
+low类的transformer函数，先将成员变量low_img用cvtColor换成灰度图，再使用全局二值化（THRESH_OTSU）
 
+mid类的transformer函数，先高斯模糊成员变量mid_img，再Canny边缘检测
+
+high类的transformer函数，先转换为HSV颜色空间，再读取图片像素点的HSV各值，得到inRange函数所需的阈值，然后根据此阈值得到mask
+
+recognition函数，使用findocntours和approxPolyDP并且面积筛选轮廓得到多边形轮廓，用相应api将方框画在克隆图片上
