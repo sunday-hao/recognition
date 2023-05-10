@@ -31,6 +31,7 @@ public:
     {   
         //高斯模糊和Canny边缘检测
         GaussianBlur(mid_img,gauss,Size(5,5),0);
+        //可自由调节阈值，减少识别误差
         Canny(gauss,can,64,128,3,true);
         if (can.empty()) return mid_img;
         else return can;
