@@ -71,7 +71,7 @@ private:
 
 void recognition(Mat img,Mat clo)  //对预处理得到的图片，寻找角点，识别出来
 {
-    vector<vector<Point>> contours;   
+    vector<vector<Point>> contours;   //存放轮廓的角点
     vector<Vec4i> hierarchy;          
     findContours(img,contours,hierarchy,RETR_TREE,CHAIN_APPROX_SIMPLE);
     vector<vector<Point>> con(contours.size());
