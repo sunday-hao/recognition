@@ -13,5 +13,6 @@ low类的transformer函数，先将成员变量low_img用cvtColor换成灰度图
 middle类的transformer函数，先高斯模糊成员变量mid_img，再Canny边缘检测
 
 high类的transformer函数，先将转换为HSV颜色空间，再读取图片像素点的HSV各值，得到inRange函数所需的阈值，然后根据此阈值得到mask
+再做开运算消除残留噪音
 
 recognition函数，使用findocntours和approxPolyDP并且面积筛选轮廓得到多边形轮廓，用相应api将方框画在克隆图片上
