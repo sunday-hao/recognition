@@ -1,6 +1,6 @@
 # recognition
 #figure_recognition.cpp 用来识别多边形形状与个数。
-#在文件的第134行通过imread传入图片
+#在文件的第121行通过imread传入图片
 
 #cpp文件里定义了两个类low,high
 #每个类里各有一个成员函数transformer，分别是对低级，中高级图片的预处理方法
