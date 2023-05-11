@@ -57,10 +57,14 @@ public:
         //储存inRange函数所需要的颜色阈值,可适当上下调节
         Scalar lower_color,upper_color;
         lower_color = Scalar((0.97*h_left_upside)/1,(0.6*s_left_upside)/1,(0.6*v_left_upside)/1);
-        upper_color = Scalar((1.03*h_left_upside)/1,255,255);
+        upper_color = Scalar((1.04*h_left_upside)/1,255,255);
         inRange(hsv_img,lower_color,upper_color,mask);
+        Mat zhong;
         //方便观察
-        bitwise_not(mask,oppo);
+        bitwise_not(mask,zhong);
+        //做开运算，消除残留的噪声
+        Mat kernel = getStructuringElement(MORPH_RECT,Size(5,5));
+        morphologyEx(zhong,oppo,MORPH_OPEN,kernel);
         return oppo;
     }
 private:
