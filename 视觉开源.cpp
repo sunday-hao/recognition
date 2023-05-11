@@ -70,7 +70,7 @@ void recognition(Mat img,Mat clo)  //对预处理得到的图片，寻找角点�
         String objname;
         if (area > 600)
         {    //可上下调节阈值，避免识别的误差
-             approxPolyDP(contours[i],con[i],0.024*peri,true);
+             approxPolyDP(contours[i],con[i],0.025*peri,true);
              //定义角点
              int Line = con[i].size();
              //没有用switch结构
