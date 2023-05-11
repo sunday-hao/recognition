@@ -23,24 +23,7 @@ private:
     //储存转换后的图片
     Mat bin;
 };
-class middle  //对中级图片的预处理方法
-{
-public:
-    Mat mid_img,gauss;
-    Mat transformer()
-    {   
-        //高斯模糊和Canny边缘检测
-        GaussianBlur(mid_img,gauss,Size(5,5),0);
-        //可自由调节阈值，减少识别误差
-        Canny(gauss,can,64,128,3,true);
-        if (can.empty()) return mid_img;
-        else return can;
-    }
-private:
-    //储存转换后的图片
-    Mat can;
-};
-class high   //对高等级图片的预处理方法
+class mid_high   //对中、高级图片的预处理方法
 {
 public:
     Mat high_img,median,hsv_img,mask;
@@ -56,7 +39,7 @@ public:
         int v_left_upside = left_upside[2];
         //储存inRange函数所需要的颜色阈值,可适当上下调节
         Scalar lower_color,upper_color;
-        lower_color = Scalar((0.97*h_left_upside)/1,(0.6*s_left_upside)/1,(0.6*v_left_upside)/1);
+        lower_color = Scalar((0.96*h_left_upside)/1,(0.7*s_left_upside)/1,(0.8*v_left_upside)/1);
         upper_color = Scalar((1.04*h_left_upside)/1,255,255);
         inRange(hsv_img,lower_color,upper_color,mask);
         Mat zhong;
@@ -133,7 +116,7 @@ void recognition(Mat img,Mat clo)  //对预处理得到的图片，寻找角点�
 
 int main()
 {   
-    high hi;
+    mid_high hi;
     //读入图片
     Mat picture = imread("/home/zhouhao/test/school_robo/high/2.jpg");
     hi.high_img = picture.clone(); 
