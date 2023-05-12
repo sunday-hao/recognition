@@ -15,5 +15,5 @@ high类的transformer函数，先将转换为HSV颜色空间，再读取图片�
 
 recognition函数，使用findocntours和approxPolyDP并且面积筛选轮廓得到多边形轮廓，用相应api将方框画在克隆图片上
 
-补充：本来还有一个middle类，后来发现high类对中级图片也通用，于是删除了middle类
-     如有误差，切记调节相关阈值
+补充：本来还有一个middle类，后来发现high类对中级图片效果更好，于是删除了middle类
+     如有误差，请调节相关阈值
