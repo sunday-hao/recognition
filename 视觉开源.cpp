@@ -37,6 +37,8 @@ public:
         int h_left_upside = left_upside[0];
         int s_left_upside = left_upside[1];
         int v_left_upside = left_upside[2];
+        //打印背景颜色的HSV各值
+        printf("H: %d , S: %d , V: %d",h_left_upside,s_left_upside,v_left_upside);
         //储存inRange函数所需要的颜色阈值,可适当上下调节
         Scalar lower_color,upper_color;
         lower_color = Scalar((0.96*h_left_upside)/1,(0.7*s_left_upside)/1,(0.8*v_left_upside)/1);
@@ -122,7 +124,6 @@ int main()
     hi.high_img = picture.clone(); 
     Mat hs = hi.transformer();
     Mat clo = picture.clone();
-    printf("H: %d , S: %d , V: %d", hi.h_left_upside,hi.s_left_upside,hi.v_left_upside);
     recognition(hs,clo);
     imshow("window",clo);
     waitKey(0);
