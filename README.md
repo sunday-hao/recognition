@@ -1,5 +1,5 @@
 # recognition
-#figure_recognition.cpp 用来识别多边形形状与个数。
+#视觉开源.cpp 用来识别多边形形状与个数。
 #在文件的第121行通过imread传入图片
 
 #cpp文件里定义了两个类low,high
