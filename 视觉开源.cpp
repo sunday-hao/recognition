@@ -122,6 +122,7 @@ int main()
     hi.high_img = picture.clone(); 
     Mat hs = hi.transformer();
     Mat clo = picture.clone();
+    printf("H: %d , S: %d , V: %d", h_left_upside,s_left_upside,v_left_upside);
     recognition(hs,clo);
     imshow("window",clo);
     waitKey(0);
